@@ -75,5 +75,18 @@ public class IdTagDTO {
         this.track = track;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(artist).append(" - ").append(album).append(" (").append(year).append(")").append(": ").append(title).append(" (").append(track).append("\\").append(trackTotal).append(", CD ").append(discNumber).append("\\").append(discTotal);
+        
+//        builder.append("IdTagDTO [title=").append(title).append(", artist=").append(artist).append(", album=").append(album).append(", year=").append(year)
+//                .append(", track=").append(track).append(", trackTotal=").append(trackTotal).append(", discNumber=").append(discNumber).append(", discTotal=")
+//                .append(discTotal).append("]");
+        return builder.toString();
+    }
+
+    
+    
 
 }

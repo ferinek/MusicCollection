@@ -1,16 +1,16 @@
 package com.wookie.config;
 
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import com.wookie.dto.IdTagDTO;
-import com.wookie.service.Mp3TagEditService;
+import com.wookie.service.FileReaderService;
 
 public class Initializer {
 
-    public static void main(String [] args){
-        IdTagDTO oldTagDTO = Mp3TagEditService.getOldTagDTO(new File("C:\\Users\\krzysztof.slodowicz.BKMGTSRV\\Downloads\\02.Invincible.mp3"));
-   
-    System.out.println(oldTagDTO);
+    public static void main(String[] args) {
+        Logger.getLogger("org.jaudiotagger").setLevel(Level.OFF);
+        FileReaderService.scanLibrary(new File("C:\\Users\\krzysztof.slodowicz.BKMGTSRV\\Music"));
     }
-    
+
 }

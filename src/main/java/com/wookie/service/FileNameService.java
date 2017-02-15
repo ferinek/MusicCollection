@@ -11,5 +11,10 @@ public class FileNameService {
     public void fixFileNameConvention(File file) {
 
     }
+
+    public static boolean checkArtist(String name) {
+        // TODO Auto-generated method stub
+        return false;
+    }
     
 }

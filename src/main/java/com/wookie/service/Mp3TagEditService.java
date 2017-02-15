@@ -19,7 +19,6 @@ public class Mp3TagEditService {
         try {
             AudioFile f = AudioFileIO.read(file);
             Tag tag = f.getTag();
-
             IdTagDTO dto = new IdTagDTO();
             dto.setArtist(tag.getFirst(FieldKey.ARTIST));
             dto.setAlbum(tag.getFirst(FieldKey.ALBUM));

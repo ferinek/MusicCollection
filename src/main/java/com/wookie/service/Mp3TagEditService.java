@@ -16,6 +16,7 @@ public class Mp3TagEditService {
     }
 
     public static IdTagDTO getTagDTO(File file) {
+        //TODO use MP3 tags 
         try {
             AudioFile f = AudioFileIO.read(file);
             Tag tag = f.getTag();
@@ -32,7 +33,8 @@ public class Mp3TagEditService {
             return null;
         }
     }
-
+   
+    
     public static void recreateIdTag(File file) {
 
     }

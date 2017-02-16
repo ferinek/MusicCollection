@@ -7,31 +7,32 @@ public class IdTagDTO {
     private String album;
     private String year;
     private String track;
-    private Integer trackTotal;
-    private Integer discNumber;
-    private Integer discTotal;
+    private String trackTotal;
+    private String discNumber;
+    private String discTotal;
 
-    public Integer getTrackTotal() {
+
+    public String getTrackTotal() {
         return trackTotal;
     }
 
-    public void setTrackTotal(Integer trackTotal) {
+    public void setTrackTotal(String trackTotal) {
         this.trackTotal = trackTotal;
     }
 
-    public Integer getDiscNumber() {
+    public String getDiscNumber() {
         return discNumber;
     }
 
-    public void setDiscNumber(Integer discNumber) {
+    public void setDiscNumber(String discNumber) {
         this.discNumber = discNumber;
     }
 
-    public Integer getDiscTotal() {
+    public String getDiscTotal() {
         return discTotal;
     }
 
-    public void setDiscTotal(Integer discTotal) {
+    public void setDiscTotal(String discTotal) {
         this.discTotal = discTotal;
     }
 

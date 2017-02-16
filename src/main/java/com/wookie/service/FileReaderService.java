@@ -1,6 +1,9 @@
 package com.wookie.service;
 
 import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FilenameUtils;
 
 import com.wookie.dto.IdTagDTO;
 import com.wookie.enums.EFileType;
@@ -15,11 +18,10 @@ public class FileReaderService {
         return true;
     }
 
-    public static void scanLibrary(File file) {
+    public static void scanLibrary(File file) throws IOException {
         if (file.isDirectory()) {
             File[] artists = file.listFiles();
             for (File artist : artists) {
-                System.out.println(artist.getName());
                 scanArtist(artist);
             }
 
@@ -28,24 +30,23 @@ public class FileReaderService {
         }
     }
 
-    private static void scanArtist(File artist) {
+    private static void scanArtist(File artist) throws IOException {
         if (artist.isDirectory()) {
             FileNameService.checkArtist(artist.getName());
             File[] albums = artist.listFiles();
             for (File album : albums) {
-                System.out.println(album.getName());
                 scanAlbum(artist, album);
             }
         }
     }
 
-    private static void scanAlbum(File artist, File album) {
+    private static void scanAlbum(File artist, File album) throws IOException {
 
         if (hasManyCD(album)) {
 
         } else {
-            // TODO checkIfAlltracks
             // TODO GET ALBUM DATA FROM INTERNET
+            // TODO checkIfAlltracks
             File[] tracks = album.listFiles();
             for (File track : tracks) {
                 if (isMusicFile(track)) {
@@ -59,8 +60,10 @@ public class FileReaderService {
         }
     }
 
-    private static void parseTrack(File track, String name, String name2) {
+    private static void parseTrack(File track, String name, String name2) throws IOException {
         IdTagDTO tagDTO = Mp3TagEditService.getTagDTO(track);
+        String type=FilenameUtils.getExtension(track.getName());
+        FileNameService.fixFileNameConvention(track, tagDTO, type);
         System.out.println(tagDTO);
     }
 
